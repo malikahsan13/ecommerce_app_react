@@ -4,7 +4,7 @@ const CartContext = createContext();
 import { initialProducts } from "../data/products";
 import React from "react";
 
-export const CartProvider = ({ props }) => {
+export const CartProvider = (props) => {
   const products = initialProducts;
   return (
     <CartContext.Provider value={{ products }}>
@@ -13,4 +13,4 @@ export const CartProvider = ({ props }) => {
   );
 };
 
-export const useCart = useContext(CartContext);
+export const useCart = () => useContext(CartContext);
