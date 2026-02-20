@@ -12,3 +12,5 @@ export const CartProvider = ({ props }) => {
     </CartContext.Provider>
   );
 };
+
+export const useCart = useContext(CartContext);
