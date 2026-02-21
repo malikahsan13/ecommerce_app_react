@@ -23,6 +23,19 @@ const ProductCard = ({ product }) => {
             Rs. {product.price.toFixed(2)}
           </div>
         </Link>
+        <div className="p5 flex flex-col grow">
+          <Link to={"/product"}>
+            <h3 className="text-xl font-bold text-white mb-2 cursor-pointer text-orange-400 transition duration-200 line-clamp-1">
+              {product.name}
+            </h3>
+            <p className="text-gray-200 text-sm mb-4 line-clamp-3">
+              {product.description}
+            </p>
+            <div>
+              <span>{product.category}</span>
+            </div>
+          </Link>
+        </div>
       </div>
     </>
   );
