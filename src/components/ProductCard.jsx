@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
       hover:scale-[1.03] hover:shadow-orange-900/40"
       >
         <Link
-          to={"/product"}
+          to={`/product/${product.id}`}
           className="relative cursor-pointer overflow-hidden"
         >
           <img
@@ -25,7 +25,7 @@ const ProductCard = ({ product }) => {
           </div>
         </Link>
         <div className="p5 flex flex-col grow">
-          <Link to={"/product"}>
+          <Link to={`/product/${product.id}`}>
             <h3 className="text-xl font-bold text-white mb-2 cursor-pointer text-orange-400 transition duration-200 line-clamp-1">
               {product.name}
             </h3>
