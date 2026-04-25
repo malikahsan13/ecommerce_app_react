@@ -8,6 +8,7 @@ export const CartProvider = (props) => {
   const [cart, setCart] = useState([]);
   const products = initialProducts;
 
+  // Add item into the cart
   const addToCart = (product) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
@@ -19,6 +20,27 @@ export const CartProvider = (props) => {
         );
       } else {
         return [...prevCart, { ...product, quantity: 1 }];
+      }
+    });
+  };
+
+  // Remove item from cart
+  const removeFromCart = (productId, removeAll = false) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item.id === productId);
+
+      if (!existingItem) {
+        return prevCart;
+      }
+
+      if (removeAll || existingItem.quantity === 1) {
+        return prevCart.filter((item) => item.id !== productId);
+      } else {
+        return prevCart.map((item) =>
+          item.id === productId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item,
+        );
       }
     });
   };
