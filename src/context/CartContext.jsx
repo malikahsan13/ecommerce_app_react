@@ -45,6 +45,9 @@ export const CartProvider = (props) => {
     });
   };
 
+  // Clear cart
+  const clearCart = () => setCart([]);
+
   return (
     <CartContext.Provider value={{ products }}>
       {props.children}
