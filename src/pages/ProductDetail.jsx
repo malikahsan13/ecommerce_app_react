@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { initialProducts } from "../data/products";
 import { ChevronLeft, Tag, Zap, ShoppingCart } from "lucide-react";
+import { useCart } from "../context/CartContext";
+
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const {addToCart} = useCart();
 
   useEffect(() => {
     const foundProduct = initialProducts.find((p) => p.id == id);
@@ -69,7 +72,9 @@ const ProductDetail = () => {
             </ul>
 
             <div className="mt-5 space-y-5 flex justify-center items-center flex-col">
-              <button className="w-full py-3 bg-orange-600 rounded-full text-white font-bold rounnded-full shadow-lg shadow-orange-800/50 cursor-pointer hover:bg-orange-700 transition duration-300 flex items-center justify-center space-x-2 transform hover:ring-4 hover:ring-pint-600/50 tracking-wider">
+              <button className="w-full py-3 bg-orange-600 rounded-full text-white font-bold rounnded-full shadow-lg shadow-orange-800/50 cursor-pointer hover:bg-orange-700 transition duration-300 flex items-center justify-center space-x-2 transform hover:ring-4 hover:ring-pint-600/50 tracking-wider"
+                onClick={() => addToCart(product)}
+              >
                 <ShoppingCart className="w-6 h-6" /> ADD TO CART
               </button>
               <Link
