@@ -2,6 +2,7 @@ import React from "react";
 import {useCart} from "../context/CartContext"
 import {Link} from "react-router-dom"
 import { ShoppingCart, ChevronLeft, Zap } from "lucide-react"
+import CartItem from "../components/CartItem"
 
 const Cart = () => {
   const { cart, cartTotal, cartCount } = useCart()
@@ -16,6 +17,14 @@ const Cart = () => {
     </div>
 
   <h2 className="text-4xl font-extrabold text-white mb-10 tracking-tight">Shopping Cart ({cartCount})</h2>
+
+  <div className="grid grid-cols-1 lg-:grid-cols-3 gap-10">
+    <div className="lg:col-span-2 space-y-4">
+      {cart.map(item=> <CartItem key={item.id} item={item} />)}
+
+    </div>
+
+  </div>
 
   </>;
 };
