@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 import { ShoppingCart, ChevronLeft, Zap } from "lucide-react"
 
 const Cart = () => {
-  const { cart, cartTotol } = useCart()
+  const { cart, cartTotal, cartCount } = useCart()
   return <>
     <div className="container mx-auto px-4 md:px-8 pt-8">
       <div className="flex items-center mb-10">
@@ -14,6 +14,9 @@ const Cart = () => {
         </Link>
       </div>
     </div>
+
+  <h2 className="text-4xl font-extrabold text-white mb-10 tracking-tight">Shopping Cart ({cartCount})</h2>
+
   </>;
 };
 
