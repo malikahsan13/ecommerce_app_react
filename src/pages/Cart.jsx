@@ -21,7 +21,14 @@ const Cart = () => {
   <div className="grid grid-cols-1 lg-:grid-cols-3 gap-10">
     <div className="lg:col-span-2 space-y-4">
       {cart.map(item=> <CartItem key={item.id} item={item} />)}
-
+    </div>
+    <div className="lg:col-span-1 p-8 bg-gray-900 rounded-2xl shadow-2xl border-1-4 sticky top-20 h-fit border border-gray-800">
+      <h3>
+        <div>
+          <span className="flex justify-between"></span>
+          <span>Order Total</span>
+        </div>
+      </h3>
     </div>
 
   </div>
