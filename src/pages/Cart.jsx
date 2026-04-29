@@ -23,12 +23,18 @@ const Cart = () => {
       {cart.map(item=> <CartItem key={item.id} item={item} />)}
     </div>
     <div className="lg:col-span-1 p-8 bg-gray-900 rounded-2xl shadow-2xl border-1-4 sticky top-20 h-fit border border-gray-800">
-      <h3>
+      <h3 className="text-3xl font-bold text-white mb-5 border-b border-y-gray-700 pb-3 flex items-center space-x-2">
         <div>
           <span className="flex justify-between"></span>
           <span>Order Total</span>
         </div>
       </h3>
+      <div className="space-y-4 text-gray-400">
+        <div className="flex justify-between text-xl">
+          <span>SubTotal: </span>
+          <span className="font-semibold text-white">Rs. {cartTotal.toFixed(2)}</span>
+        </div>
+      </div>
     </div>
 
   </div>
