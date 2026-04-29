@@ -34,6 +34,14 @@ const Cart = () => {
           <span>SubTotal: </span>
           <span className="font-semibold text-white">Rs. {cartTotal.toFixed(2)}</span>
         </div>
+        <div className="flex justify-between text-xl">
+          <span>Shipping (Express): </span>
+          <span className="font-semibold text-green-400">Free</span>
+        </div>
+        <div className="flex justify-between pt-6 border-t border-gray-700">
+          <span className="text-2xl font-extrabold text-white">Estimated Total: </span>
+          <span className="text-2xl font-extrabold text-orange-400">Rs {cartTotal.toFixed(2)}</span>
+        </div>
       </div>
     </div>
 
