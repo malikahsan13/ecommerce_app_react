@@ -17,11 +17,18 @@ const CartItem = ({item}) => {
     </div>
     <div className="flex items-center justify-between sm:justify-end w-full sm:w-2/5 sm:mt-0 space-x-4">
       <div className="flex items-center border border-gray-700 rounded-full overflow-hidden shadow-lg">
-        <button className="p-2 text-gray-400 bg-gray-800 hover:bg-gray-700 transition duration-150 w-8 h-8 items-center justify-center">
+        <button onClick={decreaseQ} className="p-2 text-gray-400 bg-gray-800 hover:bg-gray-700 transition duration-150 w-8 h-8 items-center justify-center">
           -
         </button>
+        <span className="px-3 text-base font-bold text-white bg-gray-800">{item.quantity}</span>
+        <button onClick={increaseQ} className="p-2 text-gray-400 bg-gray-800 hover:bg-gray-700 transition duration-150 w-8 h-8 items-center justify-center">
+          +
+        </button>
       </div>
-
+      <p className="font-extrabold text-orange-300 w-24 text-right hidden mb:block">{(item.price * item.quantity).tofixed(2)}</p>
+      <button onClick={() => removeFromCart(item.id, true)} className="p-3 b-red-800/20 text-red-400">
+        <X className="w-5 h-5" />
+      </button>
     </div>
   </div>;
 };
