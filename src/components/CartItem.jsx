@@ -15,7 +15,14 @@ const CartItem = ({item}) => {
       <p className="text-lg text-orange-400 font-semibold">{item.price.tofixed(2)}</p>
       </div>
     </div>
+    <div className="flex items-center justify-between sm:justify-end w-full sm:w-2/5 sm:mt-0 space-x-4">
+      <div className="flex items-center border border-gray-700 rounded-full overflow-hidden shadow-lg">
+        <button className="p-2 text-gray-400 bg-gray-800 hover:bg-gray-700 transition duration-150 w-8 h-8 items-center justify-center">
+          -
+        </button>
+      </div>
 
+    </div>
   </div>;
 };
 
