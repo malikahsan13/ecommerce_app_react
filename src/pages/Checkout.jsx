@@ -22,6 +22,26 @@ const Checkout = () => {
               <MagPin className="w-7 h-7 text-orange-500" />
               <span>Shopping Information</span>
             </h3>
+            <form action="" className="space-y-6">
+              {Object.keys(deliveryDetails).map((key) => (
+                <div key={key}>
+                  <label
+                    htmlFor={key}
+                    className="block text-sm font-semibold text-gray-300 capitalize mb-1"
+                  >
+                    {key == "zip" ? "Pin Code" : key}
+                  </label>
+                  <input
+                    type={key == "zip" ? "number" : "text"}
+                    id={key}
+                    name={key}
+                    value={deliveryDetails[key]}
+                    required
+                    className="mt-1 block w-full px-5 py-3 border border-gray-700 rounded-xl shadow-inner text-white bg-gray-800 placeholder-gray-500"
+                  />
+                </div>
+              ))}
+            </form>
           </div>
         </div>
       </div>
