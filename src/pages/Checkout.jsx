@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
 import { Package, MagPin, Zap } from "lucide-react";
+import OrderConfirmation from "./OrderConfirmation"
 
 const Checkout = () => {
-  cosnt {cartTotal} = useCart()
+  cosnt {cartTotal, clearCart} = useCart()
   const [deliveryDetails, setDeliveryDetails] = useState({
     name: "",
     state: "",
@@ -11,9 +12,22 @@ const Checkout = () => {
     zip: "",
   });
 
+  const [isConfirmed, setIsConfirmed] =  useState(false);
+
   const handleChange = (e) => {
     const {name, value} = e.target;
     setDeliveryDetails(prev => ({...prev, [name]: value}))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    clearCart()
+    setIsConfirmed(true)
+
+  }
+
+  if(isConfirmed){
+    return <OrderConfirmation deliveryDetails={deliveryDetails}></OrderConfirmation>
   }
 
   return (
@@ -28,7 +42,7 @@ const Checkout = () => {
               <MagPin className="w-7 h-7 text-orange-500" />
               <span>Shopping Information</span>
             </h3>
-            <form action="" className="space-y-6">
+            <form action="" className="space-y-6" onSubmit={handleSubmit}>
               {Object.keys(deliveryDetails).map((key) => (
                 <div key={key}>
                   <label
@@ -42,6 +56,7 @@ const Checkout = () => {
                     id={key}
                     name={key}
                     value={deliveryDetails[key]}
+                    onChange={handleChange}
                     required
                     className="mt-1 block w-full px-5 py-3 border border-gray-700 rounded-xl shadow-inner text-white bg-gray-800 placeholder-gray-500"
                   />
