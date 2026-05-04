@@ -41,6 +41,13 @@ const Checkout = () => {
                   />
                 </div>
               ))}
+
+              <div className="pt-6">
+                <button type="submit" className="w-full py-4 bg-orange-600 text-white font-extrabold text-xl rounded-full shadow-lg shadow-orange-800/50 cursor-pointer hover:bg-orange-700 transition duration-300 flex items_center justify-center space-x-2 transform hover:ring-4 hover:ring-pink-600/50 uppercase tracking-wider" />
+                <Zap className="w-6 h-6" />
+                <span>Proceed Securely</span>
+              </div>
+
             </form>
           </div>
         </div>
