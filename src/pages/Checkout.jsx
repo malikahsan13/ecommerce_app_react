@@ -82,8 +82,8 @@ const Checkout = () => {
             <div className="space-y-4 text-gray-400">
               {cart.map((item) => {
                 <div key={item.id} className="flex justify-between text-base border-bottom border-gray-800 pb-2">
-                  <span>{item.name}</span>
-                  <span>{(item.price * item.quantity).toFixed(2)}</span>
+                  <span className="truncate text-gray-300">{item.name}</span>
+                  <span className="font-medium text-orange-300">{(item.price * item.quantity).toFixed(2)}</span>
                 </div>
               })}
             </div>
