@@ -5,7 +5,7 @@ import OrderConfirmation from "./OrderConfirmation"
 import { Link } from "react-router-dom";
 
 const Checkout = () => {
-  const {cartTotal, clearCart} = useCart()
+  const {cartTotal, clearCart, cart} = useCart()
   const [deliveryDetails, setDeliveryDetails] = useState({
     name: "",
     state: "",
@@ -76,11 +76,17 @@ const Checkout = () => {
           { /* Order summary */ }
           <div className="lg:col-span-1 p-8 bg-gray-900 rounded-2xl shadow-2xl border-1-4 sticky top-20 h-fit border border-gray-800">
             <h3 className="text-3xl font-bold text-white mb-5 border-b border-y-gray-700 pb-3 flex items-center space-x-2">
-              <div>
-                <span className="flex justify-between"></span>
-                <span>Order Total</span>
-              </div>
+                <Package className="w-6 h-6 text-orange-400" />
+                <span>Summary</span>
             </h3>
+            <div className="space-y-4 text-gray-400">
+              {cart.map((item) => {
+                <div key={item.id} className="flex justify-between text-base border-bottom border-gray-800 pb-2">
+                  <span>{item.name}</span>
+                  <span>{(item.price * item.quantity).toFixed(2)}</span>
+                </div>
+              })}
+            </div>
             <div className="space-y-4 text-gray-400">
               <div className="flex justify-between text-xl">
                 <span>SubTotal: </span>
