@@ -1,10 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import SearchFilter from "../components/SearchFilter";
 import CategoryFilter from "../components/CategoryFilter";
 import { useCart } from "../context/CartContext";
 import ProductCard from "../components/ProductCard";
 const ProductList = () => {
   const { products } = useCart();
+  const [searchTerm, setSearchTerm] = useState("")
+  const [selectedCategory, setSelectedCategory] = useState("All")
+
+  const filterProducts = products.filter((product) => {
+    const matchSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    || product.description.toLowerCase().includes(searchTerm.toLowerCase())
+
+    const matchesCategory = selectedCategory == 'All' || product.category == selectedCategory;
+
+    return matchSearch && matchesCategory;
+  })
+
   return (
     <>
       <div className="container mx-auto px-4 md:px-8 pt-8">
