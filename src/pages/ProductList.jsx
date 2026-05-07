@@ -20,7 +20,7 @@ const ProductList = () => {
   return (
     <>
       <div className="container mx-auto px-4 md:px-8 pt-8">
-        <SearchFilter />
+        <SearchFilter searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <CategoryFilter />
 
         <h2 className="text-2xl font-extrabold mx-auto px-4 md:px-4 pt-4">
