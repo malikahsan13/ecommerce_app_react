@@ -21,7 +21,7 @@ const ProductList = () => {
     <>
       <div className="container mx-auto px-4 md:px-8 pt-8">
         <SearchFilter searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-        <CategoryFilter />
+        <CategoryFilter selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
 
         <h2 className="text-2xl font-extrabold mx-auto px-4 md:px-4 pt-4">
           Featured Gear ({products.length} Items)

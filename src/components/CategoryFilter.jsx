@@ -7,8 +7,7 @@ const availableCategories = [
   ...new Set(initialProducts.map((p) => p.category)),
 ];
 
-const CategoryFilter = () => {
-  const selectedCategory = "Phone";
+const CategoryFilter = ({selectedCategory, setSelectedCategory}) => {
   return (
     <>
       <div className="flex flex-wrap gap-3 border-b border-gray-800 pb-6">
@@ -18,6 +17,7 @@ const CategoryFilter = () => {
             key={category}
             className={`px-5 py-2 font-bold rounded-full transition duration-200 shadoe-md
               ${selectedCategory == category ? "bg-orange-600 text-white shadow-orange-800/50" : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-orange-400 border border-gray-700"}`}
+              onClick={() => setSelectedCategory(category)}
           >
             {category}
           </button>
