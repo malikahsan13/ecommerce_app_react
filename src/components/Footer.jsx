@@ -1,7 +1,15 @@
 import React from "react";
 
 const Footer = () => {
-  return <div></div>;
+  return (
+      <div>
+        <footer className="bg-gray-950 text-gray-500 text-center p-6 border-t border-gray-800 mt-8">
+          <p className="text-sm">
+            &copy; {new Date.getFullYear()} Malik Labs. All Rights Reserved. | Advanced E-commerce Simulation.
+          </p>
+        </footer>
+      </div>
+  )
 };
 
 export default Footer;
