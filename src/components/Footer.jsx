@@ -5,7 +5,8 @@ const Footer = () => {
       <div>
         <footer className="bg-gray-950 text-gray-500 text-center p-6 border-t border-gray-800 mt-8">
           <p className="text-sm">
-            &copy; {new Date.getFullYear()} Malik Labs. All Rights Reserved. | Advanced E-commerce Simulation.
+            &copy; {new Date.getFullYear()} Malik Labs. All Rights Reserved. | 
+            <span className="text-orange-400 font-semibold">Advanced E-commerce Simulation.</span>
           </p>
         </footer>
       </div>
